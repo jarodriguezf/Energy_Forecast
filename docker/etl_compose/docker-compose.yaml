@@ -15,7 +15,7 @@ x-airflow-common:
     - .:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
-    - ./etl_script:/opt/airflow/etl_script
+    - ./etl_script:/opt/airflow/etl_script # accedemos a los script de procesamiento de datos
   user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
   depends_on:
     postgres:
