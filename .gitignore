@@ -1,3 +1,4 @@
 /data_raw
 /docker/etl/logs
 /docker/etl/.env
+/docker/etl/dags/__pycache__
