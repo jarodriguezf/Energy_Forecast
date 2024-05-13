@@ -1,1 +1,3 @@
 /data_raw
+/docker/etl/logs
+/docker/etl/.env
