@@ -2,3 +2,5 @@
 /docker/etl_compose/logs
 /docker/etl_compose/.env
 /docker/etl_compose/dags/__pycache__
+/docker/etl_compose/etl_script/__init__.py
+/docker/etl_compose/etl_script/extract/__init__.py
