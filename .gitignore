@@ -1,4 +1,3 @@
-/data_raw
 /docker/etl_compose/logs
 /docker/etl_compose/.env
 /docker/etl_compose/dags/__pycache__
