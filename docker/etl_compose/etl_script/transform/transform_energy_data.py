@@ -32,6 +32,7 @@ def format_time_id(df_copy):
     df_copy['time'] = df_copy['time'].apply(lambda x: re.split(r':00\+[0-9]{2}:00',x)[0]) # eliminamos milisegundos
     df_copy['time'] = df_copy['time'].apply(lambda x: datetime.strptime(x, format)) # Convertimos a tipo datetime
     logging.info('Parseo de fechas realizado correctamente.')
+    return df_copy
 
 
 def rename_columns(df_copy):
@@ -47,6 +48,7 @@ def rename_columns(df_copy):
 
     dict_colums = {old_name: new_name for old_name, new_name in zip(df_copy.columns, renames_columns)}
     df_copy.rename(columns=dict_colums, inplace=True)
+    
     logging.info('Renombrado de variables realizado con exito.')
     return df_copy
 
@@ -67,16 +69,17 @@ def run_transform_energy_task(df_energy_data):
         DataFrame: dataframe transformado
     """
     
-    df_copy = df_energy_data.copy()
-    logging.warn('Copia de dataset realizada para ejecutar tareas de transformación.')
     try:
+        df_copy = df_energy_data.copy()
+        logging.warn('Copia de dataset realizada para ejecutar tareas de transformación.')
+
         df_copy=drop_empty_features(df_copy)
         df_copy=drop_predict_TSO(df_copy)
         df_copy=drop_duplicates(df_copy)
         df_copy=format_time_id(df_copy)
-        df_copy_energy=rename_columns(df_copy)
+        df_copy=rename_columns(df_copy)
 
-        return df_copy_energy
+        return df_copy
     except Exception:
         logging.error('Fallo al intentar transformar el dataframe.')
 
