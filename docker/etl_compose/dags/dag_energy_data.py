@@ -9,6 +9,7 @@ from etl_script.extract.extract_etl_data import run_extract_task
 from etl_script.transform.transform_energy_data import run_transform_energy_task
 from etl_script.transform.transform_weather_data import run_transform_weather_task
 from etl_script.load.class_load_energy import TableManager, DataManager
+from etl_script.load.class_load_weather import TableManager_weather, DataManager_weather
 
 default_args = {
     'owner':'Jorge Rodríguez',
@@ -48,6 +49,18 @@ def load_energy_data():
     data_manager.insert_data(csv_file_path='data_clean_etl/return_transform_dataframes/transformed_energy_data.csv')
     logging.info('Datos insertado en bd correctamente.')
 
+
+def load_weather_data():
+    mysql_hook = MySqlHook(mysql_conn_id='mariadb_default')
+    table_manager = TableManager_weather(mysql_hook)
+    data_manager = DataManager_weather(mysql_hook)
+
+    table_manager.create_table()
+    logging.info('Tabla weather_data creada correctamente')
+    data_manager.insert_data(csv_file_path='data_clean_etl/return_transform_dataframes/transformed_weather_data.csv')
+    logging.info('Datos insertado en bd correctamente.')
+
+
 with DAG(
     'energy_data_flow',
     default_args=default_args,
@@ -65,7 +78,7 @@ with DAG(
 
     load_energy_db = PythonOperator(task_id='load_energy', python_callable=load_energy_data)
 
-    load_weather_db = DummyOperator(task_id = 'load_weather')
+    load_weather_db = PythonOperator(task_id = 'load_weather', python_callable=load_weather_data)
 
     end_ = DummyOperator(task_id = 'end')
 
