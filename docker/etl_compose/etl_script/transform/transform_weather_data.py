@@ -46,6 +46,7 @@ def float_to_int(df_copy):
     # Casteamos variables float a enteros (necesarias dadas 0.0)
     columns = ['rain_1h','rain_3h','snow_3h']
     df_copy[columns] = df_copy[columns].astype(int)
+    logging.info('Parsing a enteros realizado con exito.')
     return df_copy
 
 
