@@ -8,6 +8,8 @@ class TableManager:
     def create_table(self):
         conn = self.mysql_hook.get_conn()
         cursor = conn.cursor()
+        drop_table_query = "DROP TABLE IF EXISTS energy_data;"
+        cursor.execute(drop_table_query)
         create_table_query="""
                             CREATE TABLE IF NOT EXISTS energy_data (
                                 time_hourly DATETIME PRIMARY KEY NOT NULL,
