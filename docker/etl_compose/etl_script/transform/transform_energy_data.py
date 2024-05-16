@@ -53,6 +53,24 @@ def rename_columns(df_copy):
     return df_copy
 
 
+def convert_to_int(df_copy):
+    # Castear de float a enteros
+    columns = ['generation_biomass','generation_fossil_brown_coal/lignite',
+                'generation_fossil_coal-derived_gas','generation_fossil_gas','generation_fossil_hard_coal',
+                'generation_fossil_oil','generation_fossil_oil_shale','generation_fossil_peat',
+                'generation_geothermal','generation_hydro_pumped_storage_consumption',
+                'generation_hydro_run-of-river_and_poundage', 'generation_hydro_water_reservoir',
+                'generation_marine', 'generation_nuclear','generation_other','generation_other_renewable',
+                'generation_solar','generation_waste','generation_wind_offshore','generation_wind_onshore',
+                'total_load_actual']
+    # Rellenamos NaN con 0
+    df_copy[columns] = df_copy[columns].fillna(0)
+    df_copy[columns] = df_copy[columns].astype(int)
+
+    logging.info('Parsing a enteros realizado con exito.')
+    return df_copy
+
+
 def run_transform_energy_task(df_energy_data):
     """
         Cargamos el dataframe en bruto y procesamos a través de las funciones correspondientes:
@@ -61,6 +79,7 @@ def run_transform_energy_task(df_energy_data):
             - drop_duplicates: Eliminamos registros duplicados.
             - format_time_id: Parseo de string a datetime.
             - rename_columns: Renombramos los atributos.
+            - convert_to_int: Convertimos floats a enteros.
 
     Args:
         df_energy_data (DataFrame): dataframe en bruto (original)
@@ -78,7 +97,7 @@ def run_transform_energy_task(df_energy_data):
         df_copy=drop_duplicates(df_copy)
         df_copy=format_time_id(df_copy)
         df_copy=rename_columns(df_copy)
-
+        df_copy=convert_to_int(df_copy)
         return df_copy
     except Exception:
         logging.error('Fallo al intentar transformar el dataframe.')
