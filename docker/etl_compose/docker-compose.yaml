@@ -16,12 +16,14 @@ x-airflow-common:
     - ./logs:/opt/airflow/logs
     - ./plugins:/opt/airflow/plugins
     - ./etl_script:/opt/airflow/etl_script # accedemos a los script de procesamiento de datos
-    - ../../data_raw:/opt/airflow/data_raw
-    - ../../data_clean_etl:/opt/airflow/data_clean_etl
+    - ../../data_raw:/opt/airflow/data_raw # Directorio origen de datos
+    - ../../data_clean_etl:/opt/airflow/data_clean_etl # Directorio de datos transformados
   user: "${AIRFLOW_UID:-50000}:${AIRFLOW_GID:-50000}"
   depends_on:
     postgres:
       condition: service_healthy
+    mariadb:
+      condition: service_started
 
 services:
   postgres:
@@ -38,6 +40,19 @@ services:
       test: ["CMD", "pg_isready", "-U", "airflow"]
       interval: 5s
       retries: 5
+    restart: always
+
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: HourlyEnergyForescast
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    ports:
+      - 3306:3306
     restart: always
 
   airflow-webserver:
@@ -69,3 +84,4 @@ services:
 
 volumes:
   postgres-db-volume:
+  mariadb-data:
