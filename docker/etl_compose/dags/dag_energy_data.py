@@ -6,6 +6,7 @@ import datetime as dt
 import pandas as pd
 from etl_script.extract.extract_etl_data import run_extract_task
 from etl_script.transform.transform_energy_data import run_transform_energy_task
+from etl_script.transform.transform_weather_data import run_transform_weather_task
 
 
 default_args = {
@@ -25,12 +26,15 @@ def return_extract_data():
 def transform_energy_data():
     df_energy_data = pd.read_csv('data_clean_etl/return_extract_dataframes/df_energy_data.csv')
     transformed_energy_data = run_transform_energy_task(df_energy_data)
-    print(transformed_energy_data.head())
+    transformed_energy_data.to_csv('data_clean_etl/return_transform_dataframes/transformed_energy_data.csv')
+    logging.info('CSV guardado correctamente en (data_clean_etl/return_transform_dataframes/)')
 
 
 def transform_weather_data():
     df_weather_data=pd.read_csv('data_clean_etl/return_extract_dataframes/df_weather_data.csv')
-    print(df_weather_data.head(3))
+    transformed_weather_data = run_transform_weather_task(df_weather_data)
+    transformed_weather_data.to_csv('data_clean_etl/return_transform_dataframes/transformed_weather_data.csv')
+    logging.info('CSV guardado correctamente en (data_clean_etl/return_transform_dataframes/)')
 
 
 with DAG(
