@@ -63,30 +63,7 @@ class DataManager:
                                     generation_hydro_water_reservoir,generation_marine,generation_nuclear,generation_other,
                                     generation_other_renewable,generation_solar,generation_waste,generation_wind_offshore,
                                     generation_wind_onshore,total_load_actual,price_actual) 
-                                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) 
-                                    ON DUPLICATE KEY UPDATE 
-                                    generation_biomass = VALUES(generation_biomass),
-                                    generation_fossil_brown_coal_lignite = VALUES(generation_fossil_brown_coal_lignite),
-                                    generation_fossil_coal_derived_gas = VALUES(generation_fossil_coal_derived_gas),
-                                    generation_fossil_gas = VALUES(generation_fossil_gas),
-                                    generation_fossil_hard_coal = VALUES(generation_fossil_hard_coal),
-                                    generation_fossil_oil = VALUES(generation_fossil_oil),
-                                    generation_fossil_oil_shale = VALUES(generation_fossil_oil_shale),
-                                    generation_fossil_peat = VALUES(generation_fossil_peat),
-                                    generation_geothermal = VALUES(generation_geothermal),
-                                    generation_hydro_pumped_storage_consumption = VALUES(generation_hydro_pumped_storage_consumption),
-                                    generation_hydro_run_of_river_and_poundage = VALUES(generation_hydro_run_of_river_and_poundage),
-                                    generation_hydro_water_reservoir = VALUES(generation_hydro_water_reservoir),
-                                    generation_marine = VALUES(generation_marine),
-                                    generation_nuclear = VALUES(generation_nuclear),
-                                    generation_other = VALUES(generation_other),
-                                    generation_other_renewable = VALUES(generation_other_renewable),
-                                    generation_solar = VALUES(generation_solar),
-                                    generation_waste = VALUES(generation_waste),
-                                    generation_wind_offshore = VALUES(generation_wind_offshore),
-                                    generation_wind_onshore = VALUES(generation_wind_onshore),
-                                    total_load_actual = VALUES(total_load_actual),
-                                    price_actual = VALUES(price_actual)
+                                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                                 """
                 data = (time_hourly, int(row[1]), int(row[2]), int(row[3]), int(row[4]), int(row[5]), int(row[6]), int(row[7]),
                         int(row[8]), int(row[9]), int(row[10]), int(row[11]), int(row[12]), int(row[13]), int(row[14]),
