@@ -54,23 +54,7 @@ class DataManager_weather:
                                     (time_hourly, city_name, temp, temp_min, temp_max, pressure, humidity, 
                                     wind_speed, wind_deg, rain_1h, rain_3h, snow_3h, clouds_all, weather_id, 
                                     weather_main, weather_icon) 
-                                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) 
-                                    ON DUPLICATE KEY UPDATE  
-                                    city_name = VALUES(city_name),
-                                    temp = VALUES(temp),
-                                    temp_min = VALUES(temp_min),
-                                    temp_max = VALUES(temp_max),
-                                    pressure = VALUES(pressure),
-                                    humidity = VALUES(humidity),
-                                    wind_speed = VALUES(wind_speed),
-                                    wind_deg = VALUES(wind_deg),
-                                    rain_1h = VALUES(rain_1h),
-                                    rain_3h = VALUES(rain_3h),
-                                    snow_3h = VALUES(snow_3h),
-                                    clouds_all = VALUES(clouds_all),
-                                    weather_id = VALUES(weather_id),
-                                    weather_main = VALUES(weather_main),
-                                    weather_icon = VALUES(weather_icon)
+                                    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                                 """
                 data = (time_hourly, row[1], float(row[2]), float(row[3]), float(row[4]), int(row[5]), int(row[6]), float(row[7]),
                     int(row[8]), int(row[9]), int(row[10]), int(row[11]), int(row[12]), int(row[13]), row[14], row[15])
