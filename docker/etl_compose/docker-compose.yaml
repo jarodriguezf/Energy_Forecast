@@ -54,6 +54,8 @@ services:
     ports:
       - 3306:3306
     restart: always
+    networks:
+      - database-network
 
   airflow-webserver:
     <<: *airflow-common
@@ -81,6 +83,10 @@ services:
       _AIRFLOW_WWW_USER_CREATE: 'true'
       _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+
+networks:
+  database-network:
+    external: true
 
 volumes:
   postgres-db-volume:
