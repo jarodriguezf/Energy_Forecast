@@ -71,8 +71,8 @@ def convert_to_int(df_copy):
     return df_copy
 
 
-def drop_timeHourly_duplicated(df_copy):
-    df_copy.drop_duplicates(subset=['time_hourly'], inplace=True)
+def drop_duplicated(df_copy):
+    df_copy.drop_duplicates(inplace=True)
     logging.info('Filas fuplicadas por id time_hourly eliminadas.')
     return df_copy
 
@@ -86,7 +86,7 @@ def run_transform_energy_task(df_energy_data):
             - format_time_id: Parseo de string a datetime.
             - rename_columns: Renombramos los atributos.
             - convert_to_int: Convertimos floats a enteros.
-            - drop_timeHourly_duplicated: Eliminamos filas con misma temporalidad.
+            - drop_duplicated: Eliminamos filas duplicadas.
 
     Args:
         df_energy_data (DataFrame): dataframe en bruto (original)
@@ -105,7 +105,7 @@ def run_transform_energy_task(df_energy_data):
         df_copy=format_time_id(df_copy)
         df_copy=rename_columns(df_copy)
         df_copy=convert_to_int(df_copy)
-        df_copy=drop_timeHourly_duplicated(df_copy)
+        df_copy=drop_duplicated(df_copy)
         
         return df_copy
     except Exception:

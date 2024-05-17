@@ -51,7 +51,7 @@ def float_to_int(df_copy):
 
 
 def drop_duplicated(df_copy):
-    df_copy.drop_duplicates(subset=['time_hourly'], inplace=True)
+    df_copy.drop_duplicates(inplace=True)
     logging.info('Filas fuplicadas eliminadas.')
     return df_copy
 
@@ -65,7 +65,7 @@ def run_transform_weather_task(df_weather_data):
             - convert_to_kmh: Convertimos la velocidad del viento dado en m/s a km/h.
             - rename_dt_iso_column: Renombramos la variable dt_iso (actúa como id).
             - float_to_int: Casteamos variables a int (necesarias dado valores 0)
-            - drop_duplicated: eliminamos filas con misma temporalidad
+            - drop_duplicated: eliminamos filas duplicadas.
     Args:
         df_weather_data (DataFrame): Dataset en bruto (original)
 
