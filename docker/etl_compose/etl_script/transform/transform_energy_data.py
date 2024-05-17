@@ -86,6 +86,7 @@ def run_transform_energy_task(df_energy_data):
             - format_time_id: Parseo de string a datetime.
             - rename_columns: Renombramos los atributos.
             - convert_to_int: Convertimos floats a enteros.
+            - drop_timeHourly_duplicated: Eliminamos filas con misma temporalidad.
 
     Args:
         df_energy_data (DataFrame): dataframe en bruto (original)
