@@ -12,7 +12,8 @@ class TableManager:
         cursor.execute(drop_table_query)
         create_table_query="""
                             CREATE TABLE IF NOT EXISTS energy_data (
-                                time_hourly DATETIME PRIMARY KEY NOT NULL,
+                                id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+                                time_hourly DATETIME,
                                 generation_biomass INT,
                                 generation_fossil_brown_coal_lignite  INT,
                                 generation_fossil_coal_derived_gas INT,

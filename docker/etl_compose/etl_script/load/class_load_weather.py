@@ -13,7 +13,8 @@ class TableManager_weather:
         cursor.execute(drop_table_query)
         create_table_query="""
                             CREATE TABLE IF NOT EXISTS weather_data (
-                                time_hourly DATETIME PRIMARY KEY NOT NULL,
+                                id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+                                time_hourly DATETIME,
                                 city_name VARCHAR(20),
                                 temp  FLOAT(16),
                                 temp_min FLOAT(16),
