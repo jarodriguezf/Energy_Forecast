@@ -1,0 +1,101 @@
+(problema) generation_fossil_gas > generation_fossil_hard_coal: 
+
+- Correlación dada por el sesgo de generation_fossil_gas, presentan 
+distribuciones que afectan a la relación positiva.
+
+acciones: corregir sesgo en generation_fossil_gas, kmeans generation_fossil_hard_coal.
+
+--------------------------------------
+generation_fossil_coal_lignite > generation_fossil_gas:
+
+- Correlacion dada por el sesgo de generation_fossil_gas.
+
+acciones:corregir sesgo en generation_fossil_gas, estratificar generation_fossil_coal_lignite.
+
+--------------------------------------
+generation_fossil_hard_coal > generation_fossil_coal_lignite:
+
+- Se observa una relación entre estas variables, cuando se genera energía a travas de
+coal_lignite tiende a subir también la generación con el otro tipo de carbon hard_coal.
+Así, también se observa como aunque no se genere nada con coal_lignite, si que se puede
+generar con hard_coal. Resumiendo, se hace uso de ambas fuentes de energía (carbon).
+
+--------------------------------------
+generation_fossil_oil > generation_biomass:
+
+- Relación positiva leve, al hacer uso de mas energía a través de la biomasa, también
+se incrementa el uso del petroleo. Cabe recalcar que esta relación puede no implicar causalidad.
+
+acciones: repasar generation_biomass.
+
+---------------------------------------
+generation_fossil_gas  < generation_hydro_pumped_storage_consumption:
+
+- Al consumir mas energía a través del sistema de almacenamiento por bombeo, 
+el uso de energía a través de gas se reduce. Aún así, la variable generation_hydro_pumped_storage_consumption
+presenta un desequilibrio elevado en el valor 0 (siendo la gran mayoría de registros).
+
+---------------------------------------
+generation_hydro_run_of_river_and_poundage > generation_hydro_water_reservoir:
+
+- Al hacer uso de la energía a través de rios y estanques, también crece el uso a través de
+embalses. Esto puede deberse a factores como las precipitaciones o el uso continuado 
+de ríos hasta acabar en un embalse.
+
+---------------------------------------
+generation_biomass > generation_other:
+
+- Relación positiva, presenta tres grupos, dos de ellos en torno a los valores del eje x (200-400),
+el ultimo en torno al 400-600.
+Los dos primeros grupos aumentan independientemente de encontrarse en los mismos rangos,
+el ultimo grupo sí diferencia, aumentando la generación de otras fuentes (más de 50).
+
+---------------------------------------
+generation_biomass < generation_other_renewable:
+
+- Relación negativa, Al aumentar el consumo de energía por biomasa, tiende a disminuir
+el de energía renovables.
+
+---------------------------------------
+generation_waste > generation_other_renewable:
+
+- Relación positiva, La generación de residuos crece conforme se genera mas energía a partir
+de las renovables.
+
+---------------------------------------
+total_load_actual > generation_fossil_gas:
+
+- Conforme la demanda de energía aumenta, la generación de gas lo hace también.
+
+---------------------------------------
+total_load_actual > generation_fossil_oil:
+
+- Conforme aumenta la demanda de energía, también lo hace la generación de energía
+a través del petroleo. Aunque no es una correlación fuerte.
+
+---------------------------------------
+total_load_actual < generation_hydro_pumped_storage_consumption:
+
+- Relación negativa, conforme aumenta la demanda de energía, la generación por bombeo
+tiende a disminuir. Puede deberse a la necesidad de otras fuentes mas confiables.
+
+---------------------------------------
+price_actual > generation_fossil_gas:
+
+- Conforme la generación de energía a través de gas aumente, el precio tiende a aumentar.
+Se puede observar como este aumento no es secuencial, mas bien presenta tres grupos que 
+dan a entender epocas o temporadas de mayores subidas y bajadas.
+
+---------------------------------------
+price_actual < generation_hydro_pumped_storage_consumption:
+
+- Relación negativa, conforme la generación de energía por bombeo aaumenta, el precio tiende a disminuir.
+Cabe recalcar que la relacion es leve, por tanto no es tan significativo.
+
+
+---------------------------------------
+price_actual > total_load_actual:
+
+Es interesante observar como entre la demanda y el precio de la energía, no se representa
+una relación fuerte ni significativa, mas bien, se situa en un rango entre 20k-40k para
+la demanda con diferentes precios (altos y bajos).

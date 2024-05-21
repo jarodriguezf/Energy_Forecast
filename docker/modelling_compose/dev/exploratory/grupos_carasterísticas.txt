@@ -1,0 +1,29 @@
+Grupos de características.
+
+Observamos tres gupos principales dentro del dataset:
+
+-El primer grupo representa un 36.9% del dataset.
+-El segundo grupo un 42.8% del dataset.
+-El tercer grupo un 20.3% del dataset.
+
+En la visualización de dos dimensiones podemos observar como se diferencia claramente
+estos tres grupos, observamos algunas observaciones fuera del grupo 1 (azulverdoso).
+
+Las caracteristicas mas representativas en los 3 clusteres son:
+
+- generation_fossil_gas, generation_fossil_hard_coal, generation_hydro_water_reservouir,
+generation_nuclear, generation_wind_onshore, total_load_actual.
+
+
+Las 5 características diferenciadas para cada grupo son:
+
+-Para el cluster 0 (primero): total_load_actual, generation_fossil_gas, generation_nuclear,
+generation_fossil_hard_coal, generation_wind_onshore, generation_hydro_water_reservouir.
+
+-Para el cluster 1 (segundo): total_load_actual, generation_nuclear, generation_wind_onshore,
+generation_fossil_gas, generation_fossil_hard_coal, generation_hydro_water_reservouir.
+
+- Para el cluster 2 (tercero): total_load_actual, generation_wind_onshore, generation_nuclear, 
+generation_fossil_gas, generation_hydro_water_reservouir, generation_fossil_hard_coal.
+
+Observamos como cada grupo antepone unas características por encima de otras.
