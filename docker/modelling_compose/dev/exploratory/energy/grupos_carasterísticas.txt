@@ -1,0 +1,79 @@
+Grupos de características.
+
+Observamos dos grupos principales dentro del dataset:
+
+-El primer grupo representa un 63.6% del dataset.
+-El segundo grupo un 36.4% del dataset.
+
+En la visualización de dos dimensiones podemos observar como se diferencia claramente
+estos dos grupos, observamos algunas observaciones fuera de ambos grupos.
+
+Las caracteristicas mas repetidas en los 2 clusteres son:
+
+- generation_fossil_gas, generation_fossil_hard_coal, generation_hydro_water_reservouir,
+generation_nuclear, generation_wind_onshore y generation_solar.
+
+
+Las 5 características diferenciadas para cada grupo son:
+
+-Para el cluster 0 (primero): generation_fossil_gas, generation_nuclear,
+generation_fossil_hard_coal, generation_wind_onshore, generation_hydro_water_reservouir.
+
+-Para el cluster 1 (segundo): generation_wind_onshore, generation_nuclear, 
+generation_fossil_gas, generation_fossil_hard_coal, generation_hydro_water_reservouir.
+
+Observamos como cada grupo antepone unas características por encima de otras.
+Dando el primer grupo (cluster 0) más importancia a las energías fosiles, mientras que 
+el segundo grupo (cluster 1) a las renovables y nuclear.
+
+Observamos como ambos grupos presentan una gran aportación de energía nuclear.
+
+Analizaremos las variables multimodales según las aportaciones de cada grupo/cluster.
+
+- generation_fossil_hard_coal: El aporte de mayoritario de energías se da en fosil,
+  si necesitamos menos energía el aporte de renovables aumenta.
+
+- generation_wind_onshore: La aportación mas frecuente se da principalmente con energías
+fósiles, conforme necesitamos más energía, vamos aportando energia renovable. Cabe destacar
+que no significa dejar un tipo por otro, mas bien implica una mayor aportación frente a otro
+grupo.
+
+- generation_hydro_water_reservoir: La aportación mas frecuente se da en energías fósiles,
+complementando a esta, las energías renovables. La distribución en torno a estos grupos es
+similar a lo largo de los rangos de la variable generation_hydro_water_reservoir.
+
+- generation_hydro_run_of_river_and_poundage: Observamos una predominancia en las energías 
+fósiles frente a las renovables, siendo las fósiles mas frecuentes en mayores rangos
+renovables(a partir de 1500MW).
+
+- generation_biomass: Mayor predominancia en energías fósiles, siendo las renovables menores.
+
+- generation_fossil_oil: Interesante observar como la generación de energía a través del
+petroleo, comprende una mayor predominancia en el grupo de fósiles y nuclear(acompañado).
+Mientras tanto, el grupo de energías renovables, representa una minoría.
+
+- generation_waste: Las energías fósiles generan una cantidad mayor de residuos que las
+renovables.
+
+- generation_other_renewable: La generación de energía a través de otras formas de renovables,
+tiende a predominar la fósil, siendo las renovables el grupo de aportación mas
+reducido.
+
+- generation_other: Las formas de generación a partir de otros medios sufren un aporte mayor
+de fósiles que renovables.
+
+- Cluster: Observando estos dos grupos descritos en cada variable anteriormente, identificamos
+como el tipo fósil es el que más aporta en España, frente a renovable.
+
+-------------------------------
+Conclusión:
+
+- Encontramos dos grupos diferenciados en nuestro dataset; energías renovables y fósiles, 
+orbitando en ambos grupos la nuclear.
+
+- La energia fósil se presenta como la que más aporta en todas las variables encontradas.
+
+- La energía renovable se utiliza como un extra o plus de energía según la demanda o la situación
+si así lo requiere.
+
+- Es importante entender no se deja un grupo por el otro, ambos actúan en conjunto.
