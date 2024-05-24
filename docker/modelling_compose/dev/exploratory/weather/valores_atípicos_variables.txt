@@ -1,0 +1,37 @@
+Valores Atípicos:
+
+-----------------------------------------
+- temp: valores atípicos tanto negativos como positivos (+40, -9). Mediana en 15.
+
+-----------------------------------------
+- temp_min: valores atípicos tanto negativo como positivos (+38, -9). Mediana en 15.
+
+-----------------------------------------
+- temp_max: valores atípicos tanto negativo como positivos (+44, -9). Mediana en 16.
+
+-----------------------------------------
+- humidity: Presenta un valor atípico en 0 . Mediana en 75.
+
+-----------------------------------------
+- wind_speed: Valores atípicos en rango mayor a 30. Mediana en 10.
+
+-----------------------------------------
+- wind_deg: Sin valores atípicos.
+
+-----------------------------------------
+- rain_1h: Eliminar (exceso de 0).
+- rain_3h: Eliminar (exceso de 0).
+- rain_3h: Eliminar (exceso de 0).
+
+-----------------------------------------
+clouds_all: Sin valores atípicos.
+
+-----------------------------------------
+weather_id: Eliminar (no necesaria).
+
+-----------------------------------------
+weather_main: Valores atípicos en categorias posteriores a 'rain'.
+
+-----------------------------------------
+weather_icon: Valores atípicos en categorías 13n y 13.
+

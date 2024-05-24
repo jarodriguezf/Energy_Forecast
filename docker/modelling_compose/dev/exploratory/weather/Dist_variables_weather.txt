@@ -1,0 +1,61 @@
+Distribuciones de características weather.
+
+------------------------------------------------
+city_name: categorías bien distribuidas, cada categoría ronda las 38000 frecuencias.
+
+------------------------------------------------
+temp: Característica distribuida normalmente, con quantiles desde 10 hasta 22. Media en 16.
+
+------------------------------------------------
+temp_min: Característica distribuida normalmente, con quantiles desde 9 hasta 20.Media en 15.
+
+------------------------------------------------
+temp_max: Característica distribuida normalmente, con quantiles desde 11 hasta 24. Media en 18.
+
+------------------------------------------------
+humidity: Distribución asimetrica hacia la izquierda, con frecuencia mas alta en los 90.
+quantiles desde 53 hasta 87. Media en 68.
+
+------------------------------------------------
+wind_speed: Distribución sesgada hacia la derecha, quanties desde 3 hasta 14. Media en 9.
+
+------------------------------------------------
+wind_deg: La distribución para la dirección del viento se concentra mayoritariamente en 
+los 0º, presentando unas frecuencias menores a 10000 ocurrencias el resto de direcciones.
+Quantiles desde 55º hasta 270º. media en 9º aproximadamente.
+
+------------------------------------------------
+rain_1h: Distribución con una alta frecuencia en 0mm, siendo la media 0.02mm de lluvia en
+la última hora.
+acciones: revisar atípicos.
+
+------------------------------------------------
+rain_3h: Distribución con una alta frecuencia en 0mm, siendo la media 0mm de lluvia en
+las últimas 3 horas. 
+acciones: revisar atípicos.
+
+------------------------------------------------
+snow_3h: Distribución con alta frecuencia en 0mm, siendo la media 0mm de nieve en las ultimas 3 horas.
+acciones: revisar atípicos.
+
+------------------------------------------------
+clouds_all: Mayor frecuencia en 0% de nubosidad, con valores crecientes en 20%, 40%, 70% y 90%.
+media en 25%, con quantiles desde 0% hasta 40% de nubosidad.
+
+------------------------------------------------
+weather_id: La mayoría de los identificadores del tiempo ronda los 800 (valor identificativo)
+
+------------------------------------------------
+weather_main: Las categorias mas frecuentes son: clear, clouds, rain y mist. siendo estas practicamente
+todas las mas representadas. Por tanto el resto presente en la distribución se consideran 
+atípicas.
+
+------------------------------------------------
+weather_icon: Las categorías referente a los iconos del tiempo, presentan frecuencias máximas 
+en las categorías: 01n, 01d, 02d, 02n, 04n y 04d. El resto comprende una menor ocurrencia.
+
+
+
+
+Eliminamos variables: pressure (valores cercanos a 0, sin representacion real), weather_id (id no necesario para la prediccion).
+
