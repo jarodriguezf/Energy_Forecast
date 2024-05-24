@@ -1,0 +1,53 @@
+Valores Atípicos.
+
+-------------------------------------
+- generation_biomass: Valores atípicos tanto hacia derecha como izquierda (+550,-190).
+
+-------------------------------------
+- generation_fossil_brown_coal_lignite: No tiene atípicos.
+
+-------------------------------------
+- generation_fossil_gas: Altos valores atípicos superiores a 10000, uno inferior en 1500.
+
+
+-------------------------------------
+- generation_fossil_hard_coal: No presenta atípicos.
+
+-------------------------------------
+- generation_fossil_oil: Valores superiores a 450 y inferiores a 150.
+
+-------------------------------------
+- generation_hydro_pumped_storage_consumption: alta frecuencia de valores atípicos en rango
+mayor de 1500.
+
+-------------------------------------
+- generation_hydro_run_of_river_and_poundage: Sin atípicos.
+
+-------------------------------------
+- generation_hydro_water_reservoir: Valores superiores en 8000.
+
+-------------------------------------
+- generation_nuclear: Valores inferiores en 4000.
+
+-------------------------------------
+- generation_other: valores inferiores en 10.
+
+-------------------------------------
+- generation_other_renewable: inferiores en 40.
+
+-------------------------------------
+- generation_solar: Sin atípicos.
+
+-------------------------------------
+- generation_waste: Inferiores en 150.
+
+-------------------------------------
+- generation_wind_onshore: Superiores en 13500.
+
+-------------------------------------
+- total_load_actual: Un atípico en 0.
+
+-------------------------------------
+- price_actual: Superiores en 90 y inferiores en 20.
+
+
