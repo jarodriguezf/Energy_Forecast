@@ -21,7 +21,7 @@ Valores Atípicos:
 -----------------------------------------
 - rain_1h: Eliminar (exceso de 0).
 - rain_3h: Eliminar (exceso de 0).
-- rain_3h: Eliminar (exceso de 0).
+- snow_3h: Eliminar (exceso de 0).
 
 -----------------------------------------
 clouds_all: Sin valores atípicos.
