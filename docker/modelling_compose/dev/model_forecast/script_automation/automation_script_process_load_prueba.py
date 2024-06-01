@@ -1,42 +1,8 @@
 import pandas as pd
 import numpy as np
-from imblearn.over_sampling import SMOTE
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import power_transform, StandardScaler
-from sklearn.mixture import GaussianMixture
-
-
 # - FUNCIONES -
-
-# generation_hydro_pumped_storage_consumption, estratificar en dos categorias 0 y 1.
-def stratify_generation_hydro_pumped_storage_consumption(df_copy):
-    """ Si los valores de la variable son mayores que 0, el valor se modifica a 1.
-        En caso contrario, se mantienen en 0.
-    Args:
-        df_copy (Dataframe): copia de dataframe sin modificar valores
-
-    Returns:
-        Dataframe: dataframe modificado
-    """
-    df_copy['generation_hydro_pumped_storage_consumption']=df_copy['generation_hydro_pumped_storage_consumption'].apply(lambda x: 1 if x > 0 else 0)
-    return df_copy
-
-
-
-# generation_solar, estratificar en dos categorias 0 y 1.
-def stratify_generation_solar(df_copy):
-    """ Si los valores de la variable son menores que 600, el valor se modifica a 0.
-        En caso contrario, se mantienen en 1.
-    Args:
-        df_copy (Dataframe): copia de dataframe sin modificar valores
-
-    Returns:
-        Dataframe: dataframe modificado
-    """
-    df_copy['generation_solar']=df_copy['generation_solar'].apply(lambda x: 0 if x < 600 else 1)
-    return df_copy
-
-
 
 # generation_wind_onshore, transformación logarítmica
 def logarithm_generation_wind_onshore(df_copy):
@@ -60,15 +26,6 @@ def logarithm_generation_hydro_run_of_river_and_poundage(df_copy):
     array1d = df_copy['generation_hydro_run_of_river_and_poundage'].values
     array2d = array1d.reshape(-1,1)
     df_copy['generation_hydro_run_of_river_and_poundage'] = power_transform(array2d, method='yeo-johnson', standardize=False)
-    return df_copy
-
-
-
-# Estratificamos variable generation_nuclear
-def stratify_generation_nuclear(df_copy):
-    bins = [0,6000,7000, float('inf')]
-    labels = [0,1,2]
-    df_copy['generation_nuclear'] = pd.cut(x=df_copy['generation_nuclear'].values,bins=bins, labels=labels)
     return df_copy
 
 
@@ -116,13 +73,9 @@ def run_automation_process_load_data_prueba(df):
                    'generation_hydro_run_of_river_and_poundage','generation_nuclear',
                    'generation_fossil_hard_coal','price_actual','generation_waste',
                    'total_load_actual']]
-        
-        df_copy=stratify_generation_hydro_pumped_storage_consumption(df_copy)
-        df_copy = stratify_generation_solar(df_copy)   
         df_copy=logarithm_generation_wind_onshore(df_copy)   
         df_copy = logarithm_generation_hydro_water_reservoirl(df_copy)
         df_copy = logarithm_generation_hydro_run_of_river_and_poundage(df_copy)
-        df_copy = stratify_generation_nuclear(df_copy)
         distance_transform = distance_transform_generation_fossil_hard_coal(df_copy)
         df_copy = distance_transform.kmeans_transform()
         df_copy = logarithm_generation_waste(df_copy)
