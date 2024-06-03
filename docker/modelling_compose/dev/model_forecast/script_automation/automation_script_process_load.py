@@ -5,6 +5,20 @@ from sklearn.preprocessing import power_transform, StandardScaler
 
 # - FUNCIONES -
 
+# Extraemos de la variable tiempo la fecha en enteros.
+def transform_time_hourly(df_copy):
+    years = df_copy['time_hourly'].dt.year.values
+    months = df_copy['time_hourly'].dt.month.values
+    days=df_copy['time_hourly'].dt.day.values
+    hours=df_copy['time_hourly'].dt.hour.values
+
+    df_copy.drop('time_hourly', axis=1, inplace=True)
+    df_copy['year'] = years
+    df_copy['month']=months
+    df_copy['day']=days
+    df_copy['hour']=hours
+    return df_copy
+
 # generation_fossil_gas, eliminar valores atípicos
 def outliers_generation_fossil_gas(df_copy):
     # Deteccion de atípicos 
@@ -138,13 +152,14 @@ def run_automation_process_load_data(df):
     try:
         df_copy = df.copy()
 
-        df_copy = df_copy[['generation_hydro_pumped_storage_consumption','generation_solar',
+        df_copy = df_copy[['time_hourly','generation_hydro_pumped_storage_consumption','generation_solar',
                    'generation_fossil_gas','generation_wind_onshore',
                    'generation_fossil_oil','generation_hydro_water_reservoir',
                    'generation_hydro_run_of_river_and_poundage','generation_nuclear',
                    'generation_fossil_hard_coal','price_actual','generation_waste',
                    'total_load_actual']]
         
+        df_copy=transform_time_hourly(df_copy)
         df_copy=outliers_generation_fossil_gas(df_copy)
         df_copy=logarithm_generation_wind_onshore(df_copy)
         df_copy=outliers_generation_fossil_oil(df_copy)
