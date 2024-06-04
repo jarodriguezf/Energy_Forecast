@@ -159,7 +159,7 @@ def run_automation_process_load_data(df):
                    'generation_fossil_hard_coal','price_actual','generation_waste',
                    'total_load_actual']]
         
-        df_copy=transform_time_hourly(df_copy)
+        df_copy = transform_time_hourly(df_copy)
         df_copy=outliers_generation_fossil_gas(df_copy)
         df_copy=logarithm_generation_wind_onshore(df_copy)
         df_copy=outliers_generation_fossil_oil(df_copy)

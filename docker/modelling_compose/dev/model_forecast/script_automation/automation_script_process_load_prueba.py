@@ -88,7 +88,7 @@ def run_automation_process_load_data_prueba(df):
                    'generation_fossil_hard_coal','price_actual','generation_waste',
                    'total_load_actual']]
         
-        df_copy=transform_time_hourly(df_copy)
+        df_copy = transform_time_hourly(df_copy)
         df_copy=logarithm_generation_wind_onshore(df_copy)   
         df_copy = logarithm_generation_hydro_water_reservoirl(df_copy)
         df_copy = logarithm_generation_hydro_run_of_river_and_poundage(df_copy)
