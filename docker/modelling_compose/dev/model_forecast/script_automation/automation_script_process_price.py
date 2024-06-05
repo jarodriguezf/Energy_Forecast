@@ -21,6 +21,7 @@ def transform_time_hourly(df_copy):
     df_copy['hour']=hours
     return df_copy
 
+
 # generation_fossil_gas, eliminar valores atípicos
 def outliers_generation_fossil_gas(df_copy):
     # Deteccion de atípicos 
@@ -159,7 +160,7 @@ def run_automation_process_price_data(df):
                     'generation_fossil_brown_coal_lignite','temp_min','wind_speed','temp','temp_max',
                     'price_actual']]
         
-        df_copy=transform_time_hourly(df_copy)
+        df_copy = transform_time_hourly(df_copy)
         df_copy=outliers_generation_fossil_gas(df_copy)
         distance_transform = distance_transform_generation_fossil_hard_coal(df_copy)
         df_copy = distance_transform.kmeans_transform()
