@@ -6,16 +6,31 @@ from sklearn.mixture import GaussianMixture
 
 # - Funciones -
 
+def lag_price_date(df_copy):
+    df_copy['lag_1'] = df_copy['price_actual'].shift(1)
+    df_copy['lag_2'] = df_copy['price_actual'].shift(2)
+    df_copy['lag_3'] = df_copy['price_actual'].shift(3)
+    df_copy.fillna(0, inplace=True)
+    return df_copy
+
+def diff_price_date(df_copy):
+    df_copy['diff_1'] = df_copy['price_actual'].diff(1)
+    df_copy['diff_2'] = df_copy['price_actual'].diff(2)
+    df_copy.fillna(0, inplace=True)
+    return df_copy
+
+def rolling_mean(df_copy):
+    df_copy['rolling_mean_3'] = df_copy['price_actual'].rolling(window=3).mean()
+    df_copy['rolling_mean_7'] = df_copy['price_actual'].rolling(window=7).mean()
+    df_copy.fillna(0, inplace=True)
+    return df_copy
+
 # Extraemos de la variable tiempo la fecha en enteros.
 def transform_time_hourly(df_copy):
-    years = df_copy['time_hourly'].dt.year.values
-    months = df_copy['time_hourly'].dt.month.values
     days=df_copy['time_hourly'].dt.day.values
     hours=df_copy['time_hourly'].dt.hour.values
 
     df_copy.drop('time_hourly', axis=1, inplace=True)
-    df_copy['year'] = years
-    df_copy['month']=months
     df_copy['day']=days
     df_copy['hour']=hours
     return df_copy
@@ -123,6 +138,9 @@ def run_automation_process_price_data_prueba(df):
                     'generation_fossil_brown_coal_lignite','temp_min','wind_speed','temp','temp_max',
                     'price_actual']]
         
+        df_copy = lag_price_date(df_copy)
+        df_copy = diff_price_date(df_copy)
+        df_copy = rolling_mean(df_copy)
         df_copy=transform_time_hourly(df_copy)
         distance_transform = distance_transform_generation_fossil_hard_coal(df_copy)
         df_copy = distance_transform.kmeans_transform()
