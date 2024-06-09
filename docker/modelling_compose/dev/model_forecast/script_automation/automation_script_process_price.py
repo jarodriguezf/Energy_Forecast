@@ -11,19 +11,19 @@ def lag_price_date(df_copy):
     df_copy['lag_1'] = df_copy['price_actual'].shift(1)
     df_copy['lag_2'] = df_copy['price_actual'].shift(2)
     df_copy['lag_3'] = df_copy['price_actual'].shift(3)
-    df_copy.fillna(0, inplace=True)
+    df_copy.dropna(inplace=True)
     return df_copy
 
 def diff_price_date(df_copy):
     df_copy['diff_1'] = df_copy['price_actual'].diff(1)
     df_copy['diff_2'] = df_copy['price_actual'].diff(2)
-    df_copy.fillna(0, inplace=True)
+    df_copy.dropna(inplace=True)
     return df_copy
 
 def rolling_mean(df_copy):
     df_copy['rolling_mean_3'] = df_copy['price_actual'].rolling(window=3).mean()
     df_copy['rolling_mean_7'] = df_copy['price_actual'].rolling(window=7).mean()
-    df_copy.fillna(0, inplace=True)
+    df_copy.dropna(inplace=True)
     return df_copy
 
 # Extraemos de la variable tiempo la fecha en enteros.
