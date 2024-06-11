@@ -9,4 +9,4 @@
 /docker/etl_compose/etl_script/transform/__init__.py
 /docker/etl_compose/etl_script/load/__init__.py
 /docker/etl_compose/etl_script/load/__pycache__
-/docker/modelling_compose/dev/model_forecast/script_automation/__pycache__
+/docker/modelling_predict/dev/model_forecast/script_automation/__pycache__
