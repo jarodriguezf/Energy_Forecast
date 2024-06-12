@@ -2,7 +2,7 @@
 
 ![energy_prediction_portada](https://github.com/jarodriguezf/Energy_Forecast/assets/112967594/bc13277f-53d9-4995-abaa-db44a37dce7f)
 
-*El proposito de este proyecto es realizar un sistema de predictivo tanto de la demanda como del precio de la energía. Usando técnicas de ETL (extracción, transformación y carga de datos) así como el procesamiento y modelado de datos (modelo predictivo). EL proyecto ha sido realizado con fines didacticos, no estamos ante un proyecto profesional o con fines comerciales*.
+*El propósito de este proyecto es desarrollar un sistema predictivo tanto para la demanda como para el precio de la energía. Utilizando técnicas de ETL (extracción, transformación y carga de datos) y modelado de datos (modelos predictivos), este proyecto tiene fines didácticos y no es un proyecto profesional o con fines comerciales.*.
 
 ##  Estructura del proyecto  📁
 ![estructura_proyecto](https://github.com/jarodriguezf/Energy_Forecast/assets/112967594/33ba9171-a2cd-4288-8f28-c802c0ff7f7a)
@@ -38,15 +38,15 @@ Los datos han sido extraídos de [Kaggle](https://www.kaggle.com/datasets/nichol
 
 ## Funcionamiento del aplicación 🚀
 
-- Podremos procesar datos desde un archivo comprimido, extrayendo así en la fase de ETL la información más relevante, cargándola al final en BD.
-- Podremos ejecutar el script de la carpeta 'db_to_csv' para realizar una descarga de los datos de BD y tenerlos en csv (o parquets).
-- Así mismo, en la carpeta 'process_data' podremos ejecutar el script para separar los datos extraídos en train y test, cargando la división en parquets.
-- Unicamente ejecutando las celdas de 'result_predict' podremos predecir el precio y la demanda del conjunto de prueba dados.
+- Procesamiento de Datos: Se puede procesar datos desde un archivo comprimido, extrayendo la información más relevante en la fase de ETL y cargándola en la base de datos.
+- Descarga de Datos: Ejecutar el script en 'db_to_csv' para descargar datos de la BD en formato CSV o Parquet.
+- División de Datos: Ejecutar el script en 'process_data' para dividir los datos extraídos en conjuntos de entrenamiento y prueba, y guardar la división en formato Parquet.
+- Predicción: Ejecutar las celdas en 'result_predict' para predecir el precio y la demanda del conjunto de prueba.
 
 ## Conclusión 🎉
 
-Después de completar este proyecto, he adquirido una comprensión mayor y una soltura ante problemas referente al campo del data engineer y data science. Realizando transformaciones con tecnologías como Apache Airflow he podido ver el potencial y comodidad para automatizar procesos de carga masiva de datos, así como la capacidad para emplear redes neuronales recurrentes en series temporales (predicción del precio). 
+Después de completar este proyecto, he adquirido una mayor comprensión y soltura en problemas relacionados con la ingeniería de datos y la ciencia de datos. Utilizando tecnologías como Apache Airflow, he podido automatizar procesos de carga masiva de datos y emplear redes neuronales recurrentes en series temporales para la predicción de precios.
 
-Espero que este proyecto resulte de interés y ayude tanto como me resulto a mi.
+Espero que este proyecto resulte de interés y sea de ayuda tanto como lo fue para mí.
 
-Gracias por ver!!!
+¡Gracias por tu atención!
